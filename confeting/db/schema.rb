@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520070859) do
+ActiveRecord::Schema.define(version: 20160522083339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160520070859) do
   create_table "attendees", force: :cascade do |t|
     t.string   "name"
     t.string   "mail"
-    t.float    "ticket_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160520070859) do
     t.string   "name"
     t.date     "start_date"
     t.date     "end_date"
-    t.float    "organiser_id"
+    t.integer  "organiser_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -53,9 +52,9 @@ ActiveRecord::Schema.define(version: 20160520070859) do
   create_table "talks", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.float    "availability"
-    t.float    "conf_id"
-    t.float    "speaker_id"
+    t.integer  "availability"
+    t.integer  "conf_id"
+    t.integer  "speaker_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -63,8 +62,9 @@ ActiveRecord::Schema.define(version: 20160520070859) do
   create_table "tickets", force: :cascade do |t|
     t.float    "price"
     t.string   "currency"
-    t.float    "talk_id"
-    t.float    "access_code"
+    t.string   "talk_id"
+    t.string   "attendee_id"
+    t.string   "access_code"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

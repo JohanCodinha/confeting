@@ -4,7 +4,7 @@ class CreateConfs < ActiveRecord::Migration
       t.string :name
       t.date :start_date
       t.date :end_date
-      t.float :organiser_id
+      t.integer :organiser_id
 
       t.timestamps null: false
     end

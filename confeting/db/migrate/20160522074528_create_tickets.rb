@@ -3,8 +3,9 @@ class CreateTickets < ActiveRecord::Migration
     create_table :tickets do |t|
       t.float :price
       t.string :currency
-      t.float :talk_id
-      t.float :access_code
+      t.string :talk_id
+      t.string :attendee_id
+      t.string :access_code
 
       t.timestamps null: false
     end
