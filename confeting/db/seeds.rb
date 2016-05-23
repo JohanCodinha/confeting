@@ -88,6 +88,7 @@ def generate_ticket(talk_id, attendee_id)
 	new_ticket.price = rand(0..20)
 	new_ticket.currency = @currency.sample
 	new_ticket.talk_id = talk_id
+	# puts talk_id.class
 	new_ticket.attendee_id = attendee_id
 	new_ticket.save
 	return new_ticket
