@@ -50,8 +50,8 @@ Organiser.all.each do |organiser|
 		new_conf = Conf.new
 		new_conf.name = "#{@conf_name.first.sample} #{@conf_name.last.sample} #{rand(2016..2020)}"
 		new_conf.organiser_id = Organiser.all.sample.id
-		new_conf.start_date = new_date_time
-		new_conf.end_date		= new_date_time + rand(1..5)
+		new_conf.start 	= new_date_time
+		new_conf.end		= new_date_time + rand(1..5)
 		new_conf.save
 	end
 end
@@ -76,6 +76,10 @@ Conf.all.each do |conf|
  		new_talk.availability = rand(10..100)
  		new_talk.conf_id = conf.id
  		new_talk.speaker_id = generate_speaker().id
+
+ 		# talk_start_time = conf.start.to_time + 
+ 		new_talk.start 	= conf.start
+ 		new_talk.end 		= (conf.start.to_time + (rand(1..4)*3600)).to_datetime
  		new_talk.save
 	end
 end

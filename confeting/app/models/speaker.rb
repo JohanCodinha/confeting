@@ -1,3 +1,3 @@
 class Speaker < ActiveRecord::Base
-	has_many :talks
+	has_many :talk
 end
